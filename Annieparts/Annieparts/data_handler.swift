@@ -11,6 +11,10 @@ import Alamofire
 import Foundation
 
 var id_reference_list = []
+var year_list = []
+var manufacturer_list  = []
+var model_list = []
+var product_type_list = []
 
 private let BASE_URL = "http://192.168.1.111/www/"
 private let query_type_url = [
@@ -25,6 +29,7 @@ func get_json_data(query_type: String, query_paramters: [String: AnyObject], com
         query_url,
         parameters: query_paramters
     ).validate().responseJSON { response in
+        print(response.request?.URL)
         if let json = response.result.value {
             completion(json as? NSDictionary)
         }
@@ -41,5 +46,17 @@ func parse_config_data() {
             }
         }
         id_reference_list = id_reference
+        if let years = json!["years"] as? NSArray {
+            year_list = years
+        }
+        if let manufacturers = json!["manufactures"] as? NSArray {
+            manufacturer_list = manufacturers
+        }
+        if let models = json!["models"] as? NSArray {
+            model_list = models
+        }
+        if let attributes = json!["attributes"] as? NSArray {
+            product_type_list = attributes
+        }
     }
 }

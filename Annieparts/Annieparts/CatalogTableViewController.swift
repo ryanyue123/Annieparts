@@ -12,11 +12,10 @@ class CatalogTableViewController: UITableViewController {
     
     // MARK - Declare Variables
     private let BASE_URL = "http://192.168.1.111/www/"
-    private var catalog_data = []
+    var catalog_data = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         get_json_data("catalog", query_paramters: ["year": "2014"]) { (json) in
             self.catalog_data = json!["goods"] as! NSArray
             self.tableView.reloadData()
@@ -45,10 +44,10 @@ class CatalogTableViewController: UITableViewController {
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("product_cell") as! ProductTableViewCell
-        if let product_name = self.catalog_data[indexPath.row]["goods_name"] as? String {
+        if let product_name = self.catalog_data[indexPath.row]["name"] as? String {
             cell.product_name.text = product_name
         }
-        if let goods_img = self.catalog_data[indexPath.row]["goods_img"] as? String {
+        if let goods_img = self.catalog_data[indexPath.row]["img"] as? String {
             let url_string = BASE_URL + goods_img
             let image_url = NSURL(string: url_string)
             cell.product_image.image = UIImage(data: NSData(contentsOfURL: image_url!)!)
