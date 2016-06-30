@@ -172,10 +172,30 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Z0F-hy-PyM"/>
+                    <connections>
+                        <segue destination="E29-Wg-oIz" kind="show" identifier="showDetail" id="Onv-06-hdM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wn7-GE-Zzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2182.5" y="285.75"/>
+        </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="SjI-qu-5w2">
+            <objects>
+                <viewController id="E29-Wg-oIz" customClass="ProductDetailViewController" customModule="Annieparts" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tc5-VT-Yhc"/>
+                        <viewControllerLayoutGuide type="bottom" id="JVG-bF-JTl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xZO-Xv-SGL">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="foD-Gk-lMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2902.5" y="285.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ynq-kv-usc">

@@ -54,4 +54,16 @@ class CatalogTableViewController: UITableViewController {
         }
         return cell
     }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showDetail", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showDetail") {
+            let upcoming = segue.destinationViewController as? ProductDetailViewController
+            if let query_id = self.catalog_data[(self.tableView.indexPathForSelectedRow?.row)!]["id"] as? String {
+                upcoming?.product_id = query_id
+            }
+        }
+    }
 }

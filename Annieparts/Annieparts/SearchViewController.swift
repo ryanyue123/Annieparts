@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    // Can replace with the pickerview.selected or something similar
     private var selected_brand: String!
     private var selected_model: String!
     private var selected_product_type: String!

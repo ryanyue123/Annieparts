@@ -20,6 +20,7 @@ private let BASE_URL = "http://192.168.1.111/www/"
 private let query_type_url = [
     "config": "getCfg.php",
     "catalog": "search4app.php",
+    "product": "getGoodsInfor.php",
 ]
 
 func get_json_data(query_type: String, query_paramters: [String: AnyObject], completion: (NSDictionary?) -> Void) {
