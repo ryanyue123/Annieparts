@@ -9,18 +9,17 @@
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {
-
+    
+    // MARK: - Declare outlets/actions
     @IBOutlet weak var product_image: UIImageView!
     @IBOutlet weak var product_name: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

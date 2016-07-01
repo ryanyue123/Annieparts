@@ -10,7 +10,7 @@ import UIKit
 
 class CatalogTableViewController: UITableViewController {
     
-    // MARK - Declare Variables
+    // MARK: - Declare variables
     private let BASE_URL = "http://192.168.1.111/www/"
     var catalog_data = []
     
@@ -20,28 +20,21 @@ class CatalogTableViewController: UITableViewController {
             self.catalog_data = json!["goods"] as! NSArray
             self.tableView.reloadData()
         }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.catalog_data.count
     }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("product_cell") as! ProductTableViewCell
         if let product_name = self.catalog_data[indexPath.row]["name"] as? String {
@@ -54,6 +47,7 @@ class CatalogTableViewController: UITableViewController {
         }
         return cell
     }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("showDetail", sender: self)
     }
@@ -61,9 +55,8 @@ class CatalogTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showDetail") {
             let upcoming = segue.destinationViewController as? ProductDetailViewController
-            if let query_id = self.catalog_data[(self.tableView.indexPathForSelectedRow?.row)!]["id"] as? String {
-                upcoming?.product_id = query_id
-            }
+            let query_id = String(self.catalog_data[(self.tableView.indexPathForSelectedRow?.row)!]["id"] as! Int)
+            upcoming?.product_id = query_id
         }
     }
 }

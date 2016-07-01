@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C2718471D235142000D4E44 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2718461D235142000D4E44 /* ProductTableViewCell.swift */; };
+		3C5526641D260A5A00E2B955 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5526631D260A5A00E2B955 /* LaunchViewController.swift */; };
 		3CA56CD51D234F800089E871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA56CD41D234F800089E871 /* AppDelegate.swift */; };
 		3CA56CDA1D234F800089E871 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CA56CD81D234F800089E871 /* Main.storyboard */; };
 		3CA56CDC1D234F800089E871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CA56CDB1D234F800089E871 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		3C2718461D235142000D4E44 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		3C5526631D260A5A00E2B955 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		3CA56CD11D234F800089E871 /* Annieparts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Annieparts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA56CD41D234F800089E871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CA56CD91D234F800089E871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,8 +136,9 @@
 				3CA56CDB1D234F800089E871 /* Assets.xcassets */,
 				3CA56CD81D234F800089E871 /* Main.storyboard */,
 				3CA56CDD1D234F800089E871 /* LaunchScreen.storyboard */,
-				3CA5875B1D24BEB200992A64 /* ProductDetailViewController.swift */,
 				3CFC83A91D23622200540651 /* data_handler.swift */,
+				3CA5875B1D24BEB200992A64 /* ProductDetailViewController.swift */,
+				3C5526631D260A5A00E2B955 /* LaunchViewController.swift */,
 				3C27184A1D23517B000D4E44 /* Search */,
 				3C27184B1D23518D000D4E44 /* Config */,
 			);
@@ -367,6 +370,7 @@
 				3CA56D031D2350350089E871 /* CatalogTableViewController.swift in Sources */,
 				3CA56CD51D234F800089E871 /* AppDelegate.swift in Sources */,
 				3C2718471D235142000D4E44 /* ProductTableViewCell.swift in Sources */,
+				3C5526641D260A5A00E2B955 /* LaunchViewController.swift in Sources */,
 				3CA5875C1D24BEB200992A64 /* ProductDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

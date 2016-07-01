@@ -30,34 +30,40 @@ func get_json_data(query_type: String, query_paramters: [String: AnyObject], com
         query_url,
         parameters: query_paramters
     ).validate().responseJSON { response in
-        print(response.request?.URL)
+        print(response.request!.URL!.URLString)
         if let json = response.result.value {
             completion(json as? NSDictionary)
         }
     }
 }
-func parse_config_data() {
-    var id_reference = [NSDictionary]()
-    get_json_data("config", query_paramters: [:]) { (json) in
-        for key in (json?.allKeys)! {
-            if let key = key as? String {
-                if let attr_array = json![key] as? [NSDictionary] {
-                    id_reference.appendContentsOf(attr_array)
-                }
-            }
-        }
-        id_reference_list = id_reference
-        if let years = json!["years"] as? NSArray {
-            year_list = years
-        }
-        if let manufacturers = json!["manufactures"] as? NSArray {
-            manufacturer_list = manufacturers
-        }
-        if let models = json!["models"] as? NSArray {
-            model_list = models
-        }
-        if let attributes = json!["attributes"] as? NSArray {
-            product_type_list = attributes
-        }
+
+// FIXME: - Finish running this function after launching the application before proceeding
+
+// Given name of the selected item in each search category, find the corresponding ID to use in the GET request.
+func find_id_from_name(name: String) -> String {
+    if (name == "-") {
+        return ""
     }
+    let results = id_reference_list.filter({
+        $0["name"] as? String == name
+    })
+    if let id_string = results[0]["id"] as? Int {
+        return String(id_string)
+    } else {
+        return ""
+    }
+}
+
+// Save/read shopping cart information in NSUserDefaults
+func read_saved_shopping_cart() -> NSDictionary {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    if let shopping_cart = defaults.objectForKey("shopping_cart") as? NSDictionary {
+        return shopping_cart
+    }
+    return NSDictionary()
+}
+
+func save_shopping_cart(shopping_cart: NSDictionary) {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    defaults.setObject(shopping_cart, forKey: "shopping_cart")
 }
